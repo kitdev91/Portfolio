@@ -1,0 +1,113 @@
+/*Color Palette
+ * #CDCDCD - Grxy Sleet
+ * #69BF3F - Green Moss
+ */
+
+/* Global Styles
+ * ----------------------*/
+html { 
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+}
+/* Header and Footer
+ * ----------------------*/
+header, footer {
+	background: black;
+	padding: 10px;
+	color: gray;
+}
+
+/*header*/
+
+
+/*footer*/
+
+
+/*Navigation
+ * ----------------------*/
+nav {
+	background: #CDCDCD;
+}
+
+
+/* Intro
+ * ----------------------*/
+#intro {
+	background: #69BF3F;
+}
+
+
+/* Home
+ * -----------------------*/
+.content-wrapper {
+	max-width: 1200px;
+	background: #FAEBD7;
+	padding: 1em;
+	margin: 0 auto;
+}
+
+
+
+
+/* About
+ * -----------------------*/
+#about {
+	background: #CDCDCD;
+}
+
+.img-hold {
+	background: #7CFC00;
+	width: 200px;
+	height: 200px;	
+	border-radius: 50%;
+	float: left;	
+	margin-top: 30px;
+	margin-right: 50px;
+	margin-left: 10px;
+}
+
+.img-hold p {
+	padding-left: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.text-wrapper  {
+	overflow: hidden;
+	text-align: center;
+}
+
+	
+
+/* Pre-Proj
+ * -----------------------*/
+#pre-proj {
+	background: #69BF3F;
+}
+
+.proj-prev {
+	clear:left;
+}
+
+/* Skills&Tech
+ * -----------------------*/
+#skills-tech {
+	background: #CDCDCD;
+}
+
+
+/* Projects
+ * -----------------------*/
+#projects {
+	background: #69BF3F;
+}
