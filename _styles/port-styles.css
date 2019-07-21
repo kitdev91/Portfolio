@@ -51,6 +51,7 @@ nav {
 	background: #FAEBD7;
 	padding: 1em;
 	margin: 0 auto;
+	border-style: dotted; /* for visibility during design*/
 }
 
 
@@ -97,7 +98,17 @@ nav {
 
 .proj-prev {
 	clear:left;
+	word-wrap: break-word;
+	text-align: center;
 }
+
+
+.proj-prev li {
+	display: inline-block;
+	width: 235px;
+	padding-right: 50px;
+}
+
 
 /* Skills&Tech
  * -----------------------*/
@@ -105,9 +116,66 @@ nav {
 	background: #CDCDCD;
 }
 
+.skills {
+	text-align: center;
+}
+
+.skill-img {
+	height: 150px;
+	width: 400px;
+	margin: 15px;
+}
+
+.html {
+	background: orange;
+	display: inline-block;
+	margin-right: 60px;
+}
+
+.css {
+	background: blue;
+	display: inline-block;
+	margin-left: 60px;
+}
+
+.js {
+	background: red; /* highlighting*/
+	clear: right;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 
 /* Projects
  * -----------------------*/
 #projects {
 	background: #69BF3F;
+}
+
+.proj-img { 
+	background: purple;
+	display: inline-block;
+	width: 600px;
+	height: 250px;
+	vertical-align: top;
+}
+
+.proj-desc { 
+	background: orange;
+	display: inline-block;
+	text-align: center;
+	width: 562px;
+	height: 250px;
+	overflow:hidden;
+}
+
+.proj-display {
+	background: red;
+	text-align: center;
+	clear:both;
+}
+
+.projects ul {
+	padding: 0;
+	margin: 0;
 }
