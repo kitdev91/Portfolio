@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+<head>
 		<!--<script src="https://use.fontawesome.com/dbe3b45590.js"></script>-->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="_styles/port-styles.css">
+	<script type="text/javascript" src="_scripts/tabscript.js"></script>
 	<title>Kit Harper</title>
 </head>
 <body>
 	<!--//Intro.Begin-->
 	<section id="intro">
 		<div class="splash">
-			<h1>Chris Harper</h1>
-			<p>Your Web Developer with a balanced sense of efficient code and atheistic design</p>
+			<img class="mainLogo"src="_images/Main-Logo.svg" alt="Main Logo">
+			<!--<p>Your Web Developer with a balanced sense of efficient code and atheistic design</p>-->
 		</div>
 	</section>
 	<!--//Intro.End-->
-	<header>
 	<!--//Navigation.Begin-->
+	<header>
 		<nav>
-			<a href="#intro">Intro</a>
-			<a href="#about">About</a>
-			<a href="#skills-tech">Skills&Tech</a>
-			<a href="#projects">Projects</a>
-			<a href="contact">Contact</a>
+			<button class="tablinks active" onclick="openTab(event, 'home')"> About</button>
+			<button class="tablinks" onclick="openTab(event, 'skills-tech')"> Skills&Tech</button>
+			<button class="tablinks" onclick="openTab(event, 'projects')"> Projects</button>
+			<button class="tablinks" onclick="openTab(event, 'contact')"> Contact</button>	
 		</nav>
-		<div>
-		</div>
 	</header>	
 	<!--//Navigation.End-->	
 	<main>
 	<!--//Home.Begin-->
-	<section id="home">	
+	<section id="home" class="tabcontent defaultTab">	
 		<div class="content-wrapper">
 	<!--//About.Begin-->
 	<section id="about">
-			<div class="img-hold">
-				<p> THIS WILL BE MY FACE :-)</p>
-			</div>
+		<div class="about">
+			<img class="profile-img" src="_images/portrait.jpg" alt="portrait" width="250px" height="250px">
 			<div class="text-wrapper">
-			<h2>About Me</h2>
+				<h2>About Me</h2> <!--Use Display font-->
 			<p>Thanks for coming by! I have been a citizen of the web since I was a child and could turn on a computer and dabbling in many facets of the web for nearly as long. I am a completely self-taught programmer and passionate about art and design. This motivation and energy has driven me to learn many technologies that build the web and add in my own creations. My interest and enjoyment is providing support and enriching the many communities that exist and will exist on the internet. I aspire to develop platforms and tools to foster open and free discussion between individuals to cooperate and create amazing things together as a comunnity of like-minds. In pursuit of this I have studied HTML, CSS, and Javascript and am constantly expanding my knowledge of other techniques and tools. In addition to programming I love art and draw whenever I can which gives me a unique awareness of presentation for the user. I look forward to building something truly valuable and extraordinary for you!</p>	
 			</div>	
+		</div>
 	</section>
 	<!--//About.End-->
 	<!--//Pre-Proj.Begin-->
@@ -51,28 +49,28 @@
 				<li>
 				<h3>Project Name</h3>
 				<h5>Description of the project and used tech</h5>
-				<a href="#projects"><img src="" alt="Project Link Image"></a>
+				<a href="#projects"><img src="_images/work-in-progress.svg" alt="Project Link Image" width="210px"></a>
 				<p>click for more info</p>
 				</li>
 
 				<li>
 				<h3>Project Name</h3>
 				<h5>Description of the project and used tech</h5>
-				<a href="#projects"><img src="" alt="Project Link Image"></a>
+				<a href="#projects"><img src="_images/work-in-progress.svg" alt="Project Link Image" width="210px"></a>
 				<p>click for more info</p>
 				</li>
 
 				<li>
 				<h3>Project Name</h3>
 				<h5>Description of the project and used tech</h5>
-				<a href="#projects"><img src="" alt="Project Link Image"></a>
+				<a href="#projects"><img src="_images/work-in-progress.svg" alt="Project Link Image" width="210px"></a>
 				<p>click for more info</p>
 				</li>
 
 				<li>
 				<h3>Project Name</h3>
 				<h5>Description of the project and used tech</h5>
-				<a href="#projects"><img src="" alt="Project Link Image"></a>
+				<a href="#projects"><img src="_images/work-in-progress.svg" alt="Project Link Image" width="210px"></a>
 				<p>click for more info</p>
 				</li>
 			</ul>
@@ -82,53 +80,125 @@
 		</div> <!--content wrapper.end-->
 	</section>
 	<!--//Home.End-->
-		<div class="content-wrapper">
 	<!--//Skills&Tech.Begin-->
-	<section id="skills-tech">
-		<div class="skills">
-			<h2>Skills</h2>
-			<h3>What can I do?</h3>
-			<ul>
-				<li class="skill-img html">HTML</li> <!--replace with img-->
-				<li class="skill-img css">CSS</li> <!-- replace with img-->
-				<li class="skill-img js">Javascript</li> <!--replace with img-->
-			</ul>
-		</div>
+	<section id="skills-tech" class="tabcontent">
+		<div class="content-wrapper">
+			<div class="skills">
+				<h2>Skills</h2>
+				<h3>What can I do?</h3>
+				<ul>
+					<li class="skill-img html"><img class="skill-img" src="_images/html_skill.png" alt="HTML"></li>
+					<li class="skill-img css"><img class="skill-img" src="_images/css_skill.png" alt="CSS"></li> 
+					<li class="skill-img js"><img class="skill-img" src="_images/javascript_skill.png" alt="Javascript"></li>
+				</ul>
+			</div>
+		</div> <!--content wrapper.end-->
 	</section>
 	<!--//Skills&Tech.End-->
-		</div> <!--content wrapper.end-->
-		<div class="content-wrapper">
 	<!--//Projects.Begin-->
-	<section id="projects">
-		<div class="projects">
-			<ul>
-				<li class="proj-img">
-					<a href=""><img src="" alt="Project Image Link"></a>
-				</li><li class="proj-desc">
-					<p>This is a project I have worked on and used various technologies to build. Its purpose will be described here and my personal thoughts on working on it</p>
-				</li>	
-			<div class="proj-display">
-				<h3>Project Name</h3>
-				<h5>Description of the project and tech used</h5>
+	<section id="projects" class="tabcontent">
+		<div class="content-wrapper">
+			<div class="projects">
+				<div class="proj-nav">
+					<button class="projlinks active" onclick="openProj(event, 'project1')">Project 1</button>
+					<button class="projlinks" onclick="openProj(event, 'project2')">Project 2</button>
+					<button class="projlinks" onclick="openProj(event, 'project3')">Project 3</button>
+					<button class="projlinks" onclick="openProj(event, 'project4')">Project 4</button>
+				</div>
+	<!--project1.start-->	<div id="project1" class="proj-tab">
+					<ul>
+						<li class="proj-img">
+							<a href=""><img class="project-img" src="_images/coming-soon.svg" alt="Project1 Image Link"></a>
+						</li><li class="proj-desc">
+							<p>This is a project I have worked on and used various technologies to build. Its purpose will be described here and my personal thoughts on working on it</p>
+						</li>	
+					</ul>
+					<div class="proj-display">
+						<h3>Project Name</h3>
+						<h5>Description of the project and tech used</h5>
+					</div>
+	<!--project1.end-->	</div>	
+	<!--project2.start-->	<div id="project2" class="proj-tab hide-tab">
+					<ul>
+						<li class="proj-img">
+							<a href=""><img class="project-img" src="_images/coming-soon.svg" alt="Project2 Image Link"></a>
+						</li><li class="proj-desc">
+							<p>This is a project I have worked on and used various technologies to build. Its purpose will be described here and my personal thoughts on working on it</p>
+						</li>	
+					</ul>
+					<div class="proj-display">
+						<h3>Project Name</h3>
+						<h5>Description of the project and tech used</h5>
+					</div>
+	<!--project2.end-->	</div>
+	<!--project3.start-->	<div id="project3" class="proj-tab hide-tab">
+					<ul>
+						<li class="proj-img">
+							<a href=""><img class="project-img" src="_images/coming-soon.svg" alt="Project3 Image Link"></a>
+						</li><li class="proj-desc">
+							<p>This is a project I have worked on and used various technologies to build. Its purpose will be described here and my personal thoughts on working on it</p>
+						</li>	
+					</ul>
+					<div class="proj-display">
+						<h3>Project Name</h3>
+						<h5>Description of the project and tech used</h5>
+					</div>
+	<!--project3.end-->	</div>
+	<!--project4.start-->	<div id="project4" class="proj-tab hide-tab">
+					<ul>
+						<li class="proj-img">
+							<a href=""><img class="project-img" src="_images/coming-soon.svg" alt="Project4 Image Link"></a>
+						</li><li class="proj-desc">
+							<p>This is a project I have worked on and used various technologies to build. Its purpose will be described here and my personal thoughts on working on it</p>
+						</li>	
+					</ul>
+					<div class="proj-display">
+						<h3>Project Name</h3>
+						<h5>Description of the project and tech used</h5>
+					</div>
+	<!--project4.end-->	</div>
 			</div>
-			
-			
-		</div>
+		</div> <!--content wrapper.end-->	
 	</section>
 	<!--//Projects.End-->
-		</div> <!--content wrapper.end-->
+	<!--//Contacts.Begin-->
+	<section id="contact" class="tabcontent">
+		<div class="content-wrapper">
+			<div class= "contact"> 
+				<h2>Let's keep in touch</h2>
+
+				<ul>
+					<li><a href=""><img src="_images/email_icon.svg" alt="email_icon" width="60px" height="60px"></a></li>
+					<li><a href=""><img src="_images/linkedin_icon.svg" alt="linkedin_icon" width="60px" height="60px"></a></li>
+					<li><a href=""><img src="_images/github_icon.svg" alt="github_icon" width="60px" height="60px"></a></li>
+				</ul>
+
+				<form>
+					<b>Name</b><br>
+					<input type="text" name="name"><br>
+					<b>E-mail</b><br>
+					<input type="text" name="email"><br>
+					<b>Message</b><br>
+					<textarea name="message" rows="10" cols="30">
+					</textarea><br>
+					<input type="submit" value="Submit">
+				</form>
+			</div>		
+		</div>
+	</section>
+	<!--//Contacts.End-->		
+
 	</main>
 	<!--//Footer&Contacts.Begin-->
-	<footer id="contact&github">
-			<h2>Let's keep in touch</h2>
-		<div>
+	<footer id="contact-github">
+		<div class= "contact-button">
 			<ul>
-				<li><a href="">gmail</a></li>
-				<li><a href="">linkedin</a></li>
-				<li><a href="">github</a></li>
+				<!--Replace with buttons-->
+				<li><a href=""><img src="_images/email_icon.svg" alt="email_icon" width="60px" height="60px"></a></li>
+				<li><a href=""><img src="_images/linkedin_icon.svg" alt="linkedin_icon" width="60px" height="60px"></a></li>
+				<li><a href=""><img src="_images/github_icon.svg" alt="github_icon" width="60px" height="60px"></a></li>
 			</ul>	
-			
-		</div>
+		</div>		
 	</footer>
 	<!--//Footer&Contacts.End-->
 </body>
