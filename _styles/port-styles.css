@@ -267,11 +267,12 @@ nav button.active {
   	left: 18em;
 }
 
-.shopify {
+.skills ul .shopify {
 	display: inline-block;
-	margin-left: 22em;
+	margin-left: 39em;
 	position: relative;
-	bottom: 13em;
+	bottom: 14em;
+	width: 244px;
 }
 
 
@@ -339,24 +340,28 @@ nav button.active {
 	border: 4px solid #BDD3BD;
 }
 
+.proj-row {
+	display: flex;
+	flex-direction: row;
+	max-height: 500px;
+}
+
 .project-img {
+	width: 100%;
+	height: 100%;
 }
 
 .proj-desc { 
 	background: #CDC;
 	display: inline-block;
 	text-align: center;
-	width: 30%;
-	height: 250px;
-	overflow:hidden;
+	width: 100%;
 	border: 4px solid #BDD3BD;
 }
 
 .proj-display {
 	background: #CDC;
 	text-align: center;
-	margin-top: -2.4%;
-	height: 85px;
 	border: 4px solid #BDD3BD;
 }
 
