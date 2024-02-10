@@ -322,7 +322,7 @@ nav button.active {
 	font-size: 15px;
 }
 .proj-tab {
-	background-color: pink;
+	/* background-color: pink; */
 	margin-left: 20%;
 }
 
@@ -426,3 +426,191 @@ input[type=submit] {
 	color: #599759;
 	font-weight: bolder;
 }
+
+
+/* Tablets
+ * -------------------------*/
+
+ @media (min-width: 768px) and (max-width: 991px){
+	body{
+	  background-color: blue;
+	}
+
+	nav button {
+		width: 50.1%;
+	}
+
+	.proj-prev li {
+		margin-bottom: 30px;
+	}
+
+	.js {
+		position: relative;
+ 		left: 6em;
+	}
+
+	.skills ul .shopify {
+		margin-left: 26em;
+	}
+
+	.proj-row {
+		max-height: none;
+	}
+ }
+
+/* Large Phones
+ * -------------------------*/
+
+ @media (min-width: 576px) and (max-width: 767px) {
+	body{
+	  background-color: purple;
+	}
+
+	nav button {
+		width: 50.1%;
+	}
+
+	.proj-prev li {
+		margin-bottom: 30px;
+	}
+
+	.js {
+		position: relative;
+ 		left: 9em;
+	}
+
+	.skills ul .shopify {
+		margin-left: unset;
+    	top: 0px;
+		left: 110px;
+    	margin-bottom: 25px;
+	}
+
+	.proj-row {
+		max-height: none;
+	}
+
+	.splash {
+		padding-left: unset;
+	}
+
+	.profile-img {
+		margin-bottom: 40px;
+		position: relative;
+  		left: 127px;
+		float: none;
+ 		
+	}
+
+	.text-wrapper {
+		position: relative;
+  		left: 22px;
+	}
+
+	.css {
+		margin-right: 140px;
+	}
+
+	.html {
+		margin-left: 40px;
+	}
+
+	.proj-row {
+		flex-direction: column;
+	}
+
+	.contact {
+		display: flex;
+  		flex-direction: column;
+	}
+
+	.contact ul {
+		order: 3;
+	}
+
+ }
+
+ /* Small Phones
+ * -------------------------*/
+
+ @media (min-width: 1px) and (max-width: 575px){
+	body{
+	  background-color: red;
+	}
+
+	.splash {
+		height: 105px;
+	}
+
+	.mainLogo {
+		display: none;
+	}
+
+	nav button {
+		width: 100.1%;
+	}
+
+	.profile-img {
+		float: none;
+		margin-bottom: 30px;
+		margin-left:30px;
+	}
+
+	.text-wrapper {
+		position: relative;
+  		left: 22px;
+	}
+
+	.proj-prev li {
+		margin-bottom: 30px;
+	}
+
+	.css {
+		position: relative;
+  		right: 58px;
+	}
+
+	.html {
+		margin-left: 40px;
+	}
+
+	.js {
+		position: relative;
+  		left: 3em;
+	}
+
+	.skills ul .shopify {
+		margin-left: unset;
+		bottom: unset;
+	}
+
+	.proj-row {
+		flex-direction: column;
+		max-height: none;
+	}
+
+	.proj-nav {
+		width: 25%;
+	}
+
+	.proj-display {
+		width: 93%;
+  		position: relative;
+  		left: 17px;
+	}
+
+	.contact {
+		display: flex;
+  		flex-direction: column;
+	}
+
+	.contact ul {
+		order: 3;
+	}
+
+	form {
+		margin: unset;
+	}
+
+
+ }
