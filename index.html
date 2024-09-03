@@ -1,9 +1,30 @@
+<?php
+// error_reporting(-1);
+// ini_set('disply_errors', 'On');
+// set_error_handler("var_dump");
+$errors = [];
+$missing = [];
+if (isset($_POST['send'])) {
+	$expected = ['name', 'email', 'comments'];
+	$required = ['name', 'comments'];
+	$to = 'Chris Harper <harper.christopher91@gmail.com>';
+	$subject = 'Feedback from contact form';
+	$headers = [];
+	$headers = 'From: chris@kitharper.com';
+	// $headers = 'Cc: another@examp.com';
+	$headers = 'Content-type: text/plain; charset=utf-8';
+	$authorized = null;
+	require './include/process_mail.php';
+	if ($mailSent) { header('Location: thanks.php'); }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 		<!--<script src="https://use.fontawesome.com/dbe3b45590.js"></script>-->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/sanitize.css">
 	<link rel="stylesheet" href="_styles/port-styles.css">
 	<script type="text/javascript" src="_scripts/tabscript.js"></script>
 	<title>Kit Harper</title>
@@ -12,8 +33,10 @@
 	<!--//Intro.Begin-->
 	<section id="intro">
 		<div class="splash">
-			<img class="mainLogo"src="_images/Main-Logo.svg" alt="Main Logo">
-			<!--<p>Your Web Developer with a balanced sense of efficient code and atheistic design</p>-->
+			<div class="img-wrapper">
+				<a href="index.php"><img class="mainLogo"src="_images/Main-Logo.svg" width="100%" alt="Main Logo"></a>
+				<!--<p>Your Web Developer with a balanced sense of efficient code and atheistic design</p>-->
+			</div>
 		</div>
 	</section>
 	<!--//Intro.End-->
@@ -49,28 +72,28 @@
 				<li>
 				<h3>Shopify Project</h3>
 				<h5>E-commerce website built using Liquid and Shopify into a custom theme</h5>
-				<a href="#projects"><img src="_images/Shopify_Project_Thumbnail.png" alt="Project Link Image" height="150px" width="210px"></a>
+				<img src="_images/Shopify_Project_Thumbnail.png" alt="Project Link Image" height="150px" width="210px" onclick="jumpToProj('0', 'projects', 'project1')">
 				<p>click for more info</p>
 				</li>
 
 				<li>
 				<h3>Hansel & Gretel</h3>
 				<h5>Chocolate treats and candy E-commerce website developed on Shopify</h5>
-				<a href="#projects"><img src="_images/Hansel_&_Gretel_Thumbnail.png" alt="Project Link Image" height="150px" width="210px"></a>
+				<img src="_images/Hansel_&_Gretel_Thumbnail.png" alt="Project Link Image" height="150px" width="210px" onclick="jumpToProj('1', 'projects', 'project2')">
 				<p>click for more info</p>
 				</li>
 
 				<li>
 				<h3>Bozilady Wellness</h3>
 				<h5>Massage and Spa service website built using Shopify</h5>
-				<a href="#projects"><img src="_images/Bozilady_Wellness_Thumbnail.png" alt="Project Link Image" height="150px" width="210px"></a>
+				<img src="_images/Bozilady_Wellness_Thumbnail.png" alt="Project Link Image" height="150px" width="210px" onclick="jumpToProj('2', 'projects', 'project3')">
 				<p>click for more info</p>
 				</li>
 
 				<li>
 				<h3>Project Name</h3>
 				<h5>Description of the project and used tech</h5>
-				<a href="#projects"><img src="_images/work-in-progress.svg" alt="Project Link Image" height="150px" width="210px"></a>
+				<img src="_images/work-in-progress.svg" alt="Project Link Image" width="210px" onclick="jumpToProj('3', 'projects', 'project4')">
 				<p>click for more info</p>
 				</li>
 			</ul>
@@ -91,7 +114,6 @@
 					<li class="skill-img css"><img class="skill-img" src="_images/css_skill.png" alt="CSS"></li> 
 					<li class="skill-img js"><img class="skill-img" src="_images/javascript_skill.png" alt="Javascript"></li>
 					<li class="skill-img"><img class="skill-img shopify" src="_images/shopify_skill.png" alt="Shopify"></li>
-				</ul>
 				</ul>
 			</div>
 		</div> <!--content wrapper.end-->
@@ -177,15 +199,55 @@
 					<li><a href="https://github.com/kitdev91"><img src="_images/github_icon.svg" alt="github_icon" width="60px" height="60px"></a></li>
 				</ul>
 
-				<form>
-					<b>Name</b><br>
-					<input type="text" name="name"><br>
-					<b>E-mail</b><br>
-					<input type="text" name="email"><br>
-					<b>Message</b><br>
-					<textarea name="message" rows="10" cols="30">
+				<?php if ($_POST && ($suspect || isset($errors['mailfail']))) : ?>
+				<script>
+				alert("Message Error: Check Contact Tab");
+				</script>
+				<p class="warning">Sorry, your mail couldn't be sent.</p>
+				<?php elseif ($errors || $missing) : ?>
+				<p class="warning">Please fix item(s) indicated</p>
+				<script>
+				alert("Message Error: Check Contact Tab");
+				</script>
+				<?php endif; ?>
+				<form method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
+					<b>Name
+						<?php if ($missing && in_array('name', $missing)) : ?>
+					<span class="warning">Please enter your name</span>
+						<?php endif; ?>
+					</b><br>
+					<input type="text" class="form-name" name="name"
+					<?php if ($errors || $missing) {
+						echo 'value = "' . htmlentities($name) . '"';
+						}
+					?>
+					><br>
+					<b>E-mail
+						<?php if ($missing && in_array('email', $missing)) : ?>
+					<span class="warning">Please enter your email</span>
+						<?php elseif (isset($errors['email'])) : ?>
+						<span class="warning">Invalid email address</span>
+						<?php endif; ?>
+					</b><br>
+					<input type="text" class="form-email" name="email"
+					<?php if ($errors || $missing) {
+						echo 'value = "' . htmlentities($email) . '"';
+						}
+					?>
+					><br>
+					<b>Message
+						<?php if ($missing && in_array('comments', $missing)) : ?>
+					<span class="warning">Please enter your message to send</span>
+						<?php endif; ?>
+					</b><br>
+					<textarea class="form-comments" name="comments" rows="10" cols="30">
+					<?php
+						if ($errors || $missing) {
+							echo htmlentities($comments);
+						}
+					?>	
 					</textarea><br>
-					<input type="submit" value="Submit">
+					<input type="submit" class="button" name="send" value="Submit">
 				</form>
 			</div>		
 		</div>
@@ -197,11 +259,10 @@
 	<footer id="contact-github">
 		<div class= "contact-button">
 			<ul>
-				<!--Replace with buttons-->
 				<li><a href=""><img src="_images/email_icon.svg" alt="email_icon" width="60px" height="60px"></a></li>
 				<li><a href="https://www.linkedin.com/in/kit-harper/"><img src="_images/linkedin_icon.svg" alt="linkedin_icon" width="60px" height="60px"></a></li>
 				<li><a href="https://github.com/kitdev91"><img src="_images/github_icon.svg" alt="github_icon" width="60px" height="60px"></a></li>
-			</ul>	
+			</ul>		
 		</div>		
 	</footer>
 	<!--//Footer&Contacts.End-->
