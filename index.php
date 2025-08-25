@@ -1,0 +1,289 @@
+<?php
+// error_reporting(-1);
+// ini_set('disply_errors', 'On');
+// set_error_handler("var_dump");
+$errors = [];
+$missing = [];
+if (isset($_POST['send'])) {
+	$expected = ['name', 'email', 'comments'];
+	$required = ['name', 'comments'];
+	$to = 'Chris Harper <harper.christopher91@gmail.com>';
+	$subject = 'Feedback from contact form';
+	$headers = [];
+	$headers = 'From: chris@kitharper.com';
+	// $headers = 'Cc: another@examp.com';
+	$headers = 'Content-type: text/plain; charset=utf-8';
+	$authorized = null;
+	require './include/process_mail.php';
+	if ($mailSent) { header('Location: thanks.php'); }
+}
+
+$var = array(
+	"item1" => "This is a value"
+);
+
+foreach($var as $key => $item) {
+	echo $key;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<!--<script src="https://use.fontawesome.com/dbe3b45590.js"></script>-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/sanitize.css">
+	<link rel="stylesheet" href="_styles/port-styles.css">
+	<script type="text/javascript" src="_scripts/tabscript.js"></script>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-XY7R552PT8"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-XY7R552PT8');
+	</script>
+	<title>Kit Harper</title>
+</head>
+<body>
+	<!--//Intro.Begin-->
+	<section id="intro">
+		<div class="splash">
+			<div class="img-wrapper">
+				<a href="index.php"><img class="mainLogo"src="_images/Main-Logo.svg" width="100%" alt="Main Logo"></a>
+				<!--<p>Your Web Developer with a balanced sense of efficient code and atheistic design</p>-->
+			</div>
+		</div>
+	</section>
+	<!--//Intro.End-->
+	<!--//Navigation.Begin-->
+	<header>
+		<nav>
+			<button class="tablinks active" onclick="openTab(event, 'home')"> About</button>
+			<button class="tablinks" onclick="openTab(event, 'skills-tech')"> Skills&Tech</button>
+			<button class="tablinks" onclick="openTab(event, 'projects')"> Projects</button>
+			<button class="tablinks" onclick="openTab(event, 'contact')"> Contact</button>	
+		</nav>
+	</header>	
+	<!--//Navigation.End-->	
+	<main>
+	<!--//Home.Begin-->
+	<section id="home" class="tabcontent defaultTab">	
+		<div class="content-wrapper">
+	<!--//About.Begin-->
+	<section id="about">
+		<div class="about">
+			<img class="profile-img" src="_images/portrait.jpg" alt="portrait" width="250px" height="250px">
+			<div class="text-wrapper">
+				<h2>About Me</h2> <!--Use Display font-->
+			<p>Thanks for coming by! I have been a citizen of the web since I was a child and could turn on a computer and dabbling in many facets of the web for nearly as long. I am a completely self-taught programmer and passionate about art and design. This motivation and energy has driven me to learn many technologies that build the web and add in my own creations. My interest and enjoyment is providing support and enriching the many communities that exist and will exist on the internet. I aspire to develop platforms and tools to foster open and free discussion between individuals to cooperate and create amazing things together as a comunnity of like-minds. In pursuit of this I have studied HTML, CSS, and Javascript and am constantly expanding my knowledge of other techniques and tools. In addition to programming I love art and draw whenever I can which gives me a unique awareness of presentation for the user. I look forward to building something truly valuable and extraordinary for you!</p>
+			<br>
+			<a href="Chris_Harper_Resume.pdf">Check out my Resume!</a>	
+			</div>	
+		</div>
+	</section>
+	<!--//About.End-->
+	<!--//Pre-Proj.Begin-->
+	<section id="pre-proj">
+		<div class="proj-prev">
+			<ul>
+				<li>
+				<h3>Bozilady Wellness</h3>
+				<h5>Massage and Spa service website built using Shopify</h5>
+				<img src="_images/Bozilady_Wellness_Thumbnail.png" alt="Project Link Image" height="150px" width="210px" onclick="jumpToProj('0', 'projects', 'project1')">
+				<p>click for more info</p>
+				</li>
+
+				<li>
+				<h3>Hansel & Gretel</h3>
+				<h5>Chocolate treats and candy E-commerce website developed on Shopify</h5>
+				<img src="_images/Hansel_&_Gretel_Thumbnail.png" alt="Project Link Image" height="150px" width="210px" onclick="jumpToProj('1', 'projects', 'project2')">
+				<p>click for more info</p>
+				</li>
+
+				<li>
+				<h3>Shopify Project</h3>
+				<h5>E-commerce website built using Liquid and Shopify into a custom theme</h5>
+				<img src="_images/Shopify_Project_Thumbnail.png" alt="Project Link Image" height="150px" width="210px" onclick="jumpToProj('2', 'projects', 'project3')">
+				<p>click for more info</p>
+				</li>
+
+				<li>
+				<h3>Blue Canyne</h3>
+				<h5>Ecommerce store on Shopify 2.0 with automated supplier app integration</h5>
+				<img src="_images\Blue_Canyne_Thumbnail.png" alt="Project Link Image" height="150px" width="210px" onclick="jumpToProj('3', 'projects', 'project4')">
+				<p>click for more info</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!--Pre-Proj.End-->
+		</div> <!--content wrapper.end-->
+	</section>
+	<!--//Home.End-->
+	<!--//Skills&Tech.Begin-->
+	<section id="skills-tech" class="tabcontent">
+		<div class="content-wrapper">
+			<div class="skills">
+				<h2>Skills</h2>
+				<h3>What can I do?</h3>
+				<ul>
+					<li class="skill-img html"><img class="skill-img" src="_images/html_skill.png" alt="HTML"></li>
+					<li class="skill-img css"><img class="skill-img" src="_images/css_skill.png" alt="CSS"></li> 
+					<li class="skill-img js"><img class="skill-img" src="_images/javascript_skill.png" alt="Javascript"></li>
+					<li class="skill-img"><img class="skill-img shopify" src="_images/shopify_skill.png" alt="Shopify"></li>
+				</ul>
+			</div>
+		</div> <!--content wrapper.end-->
+	</section>
+	<!--//Skills&Tech.End-->
+	<!--//Projects.Begin-->
+	<section id="projects" class="tabcontent">
+		<div class="content-wrapper">
+			<div class="projects">
+				<div class="proj-nav">
+					<button class="projlinks active" onclick="openProj(event, 'project1')">Project 1</button>
+					<button class="projlinks" onclick="openProj(event, 'project2')">Project 2</button>
+					<button class="projlinks" onclick="openProj(event, 'project3')">Project 3</button>
+					<button class="projlinks" onclick="openProj(event, 'project4')">Project 4</button>
+				</div>
+	<!--project1.start-->	<div id="project1" class="proj-tab">
+					<div class="proj-row">
+						<a href="_images/Bozilady_Wellness_Thumbnail.png"><img class="project-img project-one" src="_images/Bozilady_Wellness_Thumbnail.png" alt="Project1 Image Link"></a>
+						<span class="proj-desc">
+							<p>Bozilady Wellness is a service based e-commerce site. Using Shopify for this project was a opportunity to adapt the product focused features of the platform to a service website. I was successful at re-purposing the product templates into service ones. I also wanted to levarage the payment processing system built into Shopify for development efficiency. Using the Shopify App market I set up a Booking software App to allow clients to easily make appointments. </p>
+							</br>
+							<a href="https://github.com/kitdev91/Bozilady_Wellness"><p>View on Github</p></a>
+						</span>	
+					</div>
+					<div class="proj-display">
+						<h3>Bozilady Wellness</h3>
+						<h5>A massage therapy website where clients can see services offered and schedule an appointment through a Booking App. Built using HTML, CSS, and Shopify </h5>
+					</div>
+	<!--project1.end-->	</div>	
+	<!--project2.start-->	<div id="project2" class="proj-tab hide-tab">
+					<div class="proj-row">
+						<a href="_images/Hansel_&_Gretel_Thumbnail.png"><img class="project-img project-two" src="_images/Hansel_&_Gretel_Thumbnail.png" alt="Project2 Image Link"></a>
+						<span class="proj-desc">
+							<p>Hansel & Gretal is a e-commerce site that sells chocolate and candy products. This project uses Shopify to customize and manage products and sales promotions.</p>
+							</br>
+							<a href="https://github.com/kitdev91/Hansel_and_Gretel"><p>View on Github</p></a>
+						</span>	
+					</div>
+					<div class="proj-display">
+						<h3>Hansel & Gretel</h3>
+						<h5>A e-commerce store where customers can order chocolate and candies. Built using HTML, CSS, Javascript, and Shopify</h5>
+					</div>
+	<!--project2.end-->	</div>
+	<!--project3.start-->	<div id="project3" class="proj-tab hide-tab">
+					<div class="proj-row">
+						<a href="_images/Shopify_Project_Thumbnail.png"><img class="project-img project-three" src="_images/Shopify_Project_Thumbnail.png" alt="Project3 Image Link"></a>
+						<span class="proj-desc">
+							<p>This is a e-commerce retail store website. This project was built using Shopify to learn all of the platforms features and utilize the Liquid scripting template language.</p>
+							</br>
+							<a href="https://github.com/kitdev91/Shopify-Project"><p>View on Github</p></a>
+						</span>
+					</div>
+					<div class="proj-display">
+						<h3>Shopify Project</h3>
+						<h5>A clothing retail e-commerce site. Built using HTML, CSS, Javascript, and Shopify</h5>
+					</div>
+	<!--project3.end-->	</div>
+	<!--project4.start-->	<div id="project4" class="proj-tab hide-tab">
+					<div class="proj-row">
+						<a href="_images\Blue_Canyne_Thumbnail.png"><img class="project-img" src="_images\Blue_Canyne_Thumbnail.png" alt="Project4 Image Link"></a>
+						<span class="proj-desc">
+							<p>A custom theme built on the shopify platform. Layout is fully customizable featuring multiple types of leading images to catch customer attention. Showcase whole collections on the front page or preferred products. Direct from supplier app integrated to import popular products to inventory quickly. The project focuses on delivering a strong impression of the brand on the customer and optimize product inventory management.</p>
+						</span>
+					</div>
+					<div class="proj-display">
+						<h3>Blue Canyne</h3>
+						<h5>A fashion brand shopify theme utilizing Liquid and integrated shopify apps</h5>
+					</div>
+	<!--project4.end-->	</div>
+			</div>
+		</div> <!--content wrapper.end-->	
+	</section>
+	<!--//Projects.End-->
+	<!--//Contacts.Begin-->
+	<section id="contact" class="tabcontent">
+		<div class="content-wrapper">
+			<div class= "contact"> 
+				<h2>Let's keep in touch</h2>
+
+				<ul>
+					<li><a href=""><img src="_images/email_icon.svg" alt="email_icon" width="60px" height="60px"></a></li>
+					<li><a href="https://www.linkedin.com/in/kit-harper/"><img src="_images/linkedin_icon.svg" alt="linkedin_icon" width="60px" height="60px"></a></li>
+					<li><a href="https://github.com/kitdev91"><img src="_images/github_icon.svg" alt="github_icon" width="60px" height="60px"></a></li>
+				</ul>
+
+				<?php if ($_POST && ($suspect || isset($errors['mailfail']))) : ?>
+				<script>
+				alert("Message Error: Check Contact Tab");
+				</script>
+				<p class="warning">Sorry, your mail couldn't be sent.</p>
+				<?php elseif ($errors || $missing) : ?>
+				<p class="warning">Please fix item(s) indicated</p>
+				<script>
+				alert("Message Error: Check Contact Tab");
+				</script>
+				<?php endif; ?>
+				<form method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
+					<b>Name
+						<?php if ($missing && in_array('name', $missing)) : ?>
+					<span class="warning">Please enter your name</span>
+						<?php endif; ?>
+					</b><br>
+					<input type="text" class="form-name" name="name"
+					<?php if ($errors || $missing) {
+						echo 'value = "' . htmlentities($name) . '"';
+						}
+					?>
+					><br>
+					<b>E-mail
+						<?php if ($missing && in_array('email', $missing)) : ?>
+					<span class="warning">Please enter your email</span>
+						<?php elseif (isset($errors['email'])) : ?>
+						<span class="warning">Invalid email address</span>
+						<?php endif; ?>
+					</b><br>
+					<input type="text" class="form-email" name="email"
+					<?php if ($errors || $missing) {
+						echo 'value = "' . htmlentities($email) . '"';
+						}
+					?>
+					><br>
+					<b>Message
+						<?php if ($missing && in_array('comments', $missing)) : ?>
+					<span class="warning">Please enter your message to send</span>
+						<?php endif; ?>
+					</b><br>
+					<textarea class="form-comments" name="comments" rows="10" cols="30">
+					<?php
+						if ($errors || $missing) {
+							echo htmlentities($comments);
+						}
+					?>	
+					</textarea><br>
+					<input type="submit" class="button" name="send" value="Submit">
+				</form>
+			</div>		
+		</div>
+	</section>
+	<!--//Contacts.End-->		
+
+	</main>
+	<!--//Footer&Contacts.Begin-->
+	<footer id="contact-github">
+		<div class= "contact-button">
+			<ul>
+				<li><a href=""><img src="_images/email_icon.svg" alt="email_icon" width="60px" height="60px"></a></li>
+				<li><a href="https://www.linkedin.com/in/kit-harper/"><img src="_images/linkedin_icon.svg" alt="linkedin_icon" width="60px" height="60px"></a></li>
+				<li><a href="https://github.com/kitdev91"><img src="_images/github_icon.svg" alt="github_icon" width="60px" height="60px"></a></li>
+			</ul>		
+		</div>		
+	</footer>
+	<!--//Footer&Contacts.End-->
+</body>
+</html>
