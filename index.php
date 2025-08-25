@@ -17,14 +17,6 @@ if (isset($_POST['send'])) {
 	require './include/process_mail.php';
 	if ($mailSent) { header('Location: thanks.php'); }
 }
-
-$var = array(
-	"item1" => "This is a value"
-);
-
-foreach($var as $key => $item) {
-	echo $key;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -195,6 +187,8 @@ foreach($var as $key => $item) {
 						<a href="_images\Blue_Canyne_Thumbnail.png"><img class="project-img" src="_images\Blue_Canyne_Thumbnail.png" alt="Project4 Image Link"></a>
 						<span class="proj-desc">
 							<p>A custom theme built on the shopify platform. Layout is fully customizable featuring multiple types of leading images to catch customer attention. Showcase whole collections on the front page or preferred products. Direct from supplier app integrated to import popular products to inventory quickly. The project focuses on delivering a strong impression of the brand on the customer and optimize product inventory management.</p>
+							</br>
+							<a href="https://github.com/kitdev91/shopify2"><p>View on Github</p></a>
 						</span>
 					</div>
 					<div class="proj-display">
